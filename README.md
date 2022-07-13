@@ -11,6 +11,7 @@ Implications of using FakeMarketPrice.sol
 
 Any call to these functions will fail:
 1. modifier onlyOwnerOrAdmin
+    
     a. This means the fake market price MUST detect if sender is an admin, and continue to work if it is.
 2. createRandomizedIpc
 3. createIpcSeed
