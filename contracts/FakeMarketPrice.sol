@@ -50,6 +50,7 @@ contract FakeMarketPrice is Ownable {
         OldMarketPrice = MarketPrice(marketPriceAddress);
     }
     
+    uint256 public testVar;
 
     bool public willRevert = true;
     bool public allowAdminUsage = true;
@@ -68,7 +69,7 @@ contract FakeMarketPrice is Ownable {
         allowAdminUsage = _allowAdminUsage;
     }
 
-    function USD() public view returns (uint256) {
+    function USD(uint256) public view returns (uint256) {
         if (willRevert) {
             //If admins are allowed and they are one, return old market price.
             if (allowAdminUsage && isAdmin[msg.sender]) return OldMarketPrice.USD(0);
@@ -79,5 +80,9 @@ contract FakeMarketPrice is Ownable {
 
         //If reverting it turned off, return old market price.
         return OldMarketPrice.USD(0);
+    }
+
+    function tryToReadFromUSD() public {
+        testVar = USD(0);
     }
 }
