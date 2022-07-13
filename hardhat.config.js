@@ -19,8 +19,8 @@ module.exports = {
         count: 100,
       }
     },
-    rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${process.env.INFURA_ID}`,
+    ropsten: {
+      url: `https://ropsten.infura.io/v3/${process.env.INFURA_ID}`,
       accounts: [process.env.DEPLOYER_KEY],
     },
     mainnet: {
