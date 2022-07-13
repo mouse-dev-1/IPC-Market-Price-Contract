@@ -5,11 +5,11 @@ This contract is a proposed solution to the issue found within the IPC contract
 Details about the issue can be found here:
 https://twitter.com/_MouseDev/status/1546612501231566848
 
+This proposed solution would cause any call to _convertCentsToWei to fail, this disables the ability to set prices of IPCs, therefore not allowing the exploit through the internal IPC marketplace.
+
 Implications of using FakeMarketPrice.sol
 
-Any call to _convertCentsToWei will fail.
-
-These includes:
+Any call to these functions will fail:
 1. modifier onlyOwnerOrAdmin
     a. This means the fake market price MUST detect if sender is an admin, and continue to work if it is.
 2. createRandomizedIpc
