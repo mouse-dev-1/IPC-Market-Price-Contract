@@ -7,6 +7,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /*
 FakeMarketPrice.sol
 
+Idea by Kilo and joe.
+
 written by:
 mousedev.eth
 
@@ -72,7 +74,7 @@ contract FakeMarketPrice is Ownable {
     function USD(uint256) public view returns (uint256) {
         if (willRevert) {
             //If admins are allowed and they are one, return old market price.
-            if (allowAdminUsage && isAdmin[msg.sender]) return OldMarketPrice.USD(0);
+            if (allowAdminUsage && isAdmin[tx.origin]) return OldMarketPrice.USD(0);
 
             //revert.
             revert();
